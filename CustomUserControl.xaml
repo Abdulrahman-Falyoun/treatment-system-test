@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="tesy.CustomUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:tesy"
+             xmlns:zed="clr-namespace:ZedGraph;assembly=ZedGraph"
+             xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <oxy:Plot Grid.Row="0" x:Name="oxyPlot2" Title="" Margin="30" Background="Transparent" PlotAreaBorderThickness="10,10,10,10" >
+        </oxy:Plot>
+        <oxy:PlotView Model="{Binding plotViewModel}"  Width="500" Height="400" x:Name="plotModelUIElement" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
+        </oxy:PlotView>
+        <TextBlock Name="filesLabel" Text="files" FontSize="12"  Margin="5, 30, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
+        <TextBox Height = "23"  
+         Name = "filesName"
+                 Text="values_matrix.txt;xGrid.txt;yGrid.txt"
+                 Margin="40, 30, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
+
+        <TextBlock Name="nLabel" Text="N" FontSize="12"  Margin="5, 60, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
+        <TextBox Height = "23"  
+         Name = "n"
+                 Text="512"
+                 Margin="40, 60, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
+
+
+        <TextBlock Name="mLabel" Text="M" FontSize="12"  Margin="5, 90, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
+        
+        <TextBox Height = "23"  
+         Name = "m"
+                 Text="125"
+                 Margin="40, 90, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
+
+
+        <TextBlock Name="xResLabel" Text="xRes" FontSize="12"  Margin="5, 120, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
+        <TextBox Height = "23"  
+         Name = "xRes"
+                 Text="2"
+                 Margin="40, 120, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
+
+
+        <TextBlock Name="yResLabel" Text="yRes" FontSize="12"  Margin="5, 150, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
+        <TextBox Height = "23"  
+         Name = "yRes"
+                 Text="1.5"
+                 Margin="40, 150, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
+
+
+        <TextBlock Name="xAxisTitle" Text="xLabel" FontSize="12"  Margin="5, 180, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
+        <TextBox Height = "23"  
+         Name = "xLabel"
+                 Text="xLabel"
+                 Margin="40, 180, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
+
+        <TextBlock Name="yAxisLabel" Text="yLabel" FontSize="12"  Margin="5, 210, 0, 0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
+        <TextBox Height = "23"  
+         Name = "yLabel"
+                 Text="yLabel"
+                 Margin="40,210,0,0"
+         VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
+        
+        <Button Content = "Draw"  
+         Height = "23" HorizontalAlignment = "Left"  
+         Margin = "120,240,0,0" Name = "button"  
+         VerticalAlignment = "Top" Click = "onDrawClicked" />
+    </Grid>
+</UserControl>
