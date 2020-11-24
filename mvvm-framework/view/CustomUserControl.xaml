@@ -17,7 +17,7 @@
          VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
         <TextBox Height = "23"  
          Name = "filesName"
-                 Text="values_matrix.txt;xGrid.txt;yGrid.txt"
+                 Text="{Binding chartInputModelView.filesPaths}"
                  Margin="40, 30, 0, 0"
          VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
 
@@ -25,7 +25,7 @@
          VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
         <TextBox Height = "23"  
          Name = "n"
-                 Text="512"
+                 Text="{Binding chartInputModelView.numberOfRows}"
                  Margin="40, 60, 0, 0"
          VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
 
@@ -35,7 +35,7 @@
         
         <TextBox Height = "23"  
          Name = "m"
-                 Text="125"
+                 Text="{Binding chartInputModelView.numberOfColumns}"
                  Margin="40, 90, 0, 0"
          VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
 
@@ -44,7 +44,7 @@
          VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
         <TextBox Height = "23"  
          Name = "xRes"
-                 Text="2"
+                 Text="{Binding chartInputModelView.xRes}"
                  Margin="40, 120, 0, 0"
          VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
 
@@ -53,7 +53,7 @@
          VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
         <TextBox Height = "23"  
          Name = "yRes"
-                 Text="1.5"
+                 Text="{Binding chartInputModelView.yRes}"
                  Margin="40, 150, 0, 0"
          VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
 
@@ -62,7 +62,7 @@
          VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
         <TextBox Height = "23"  
          Name = "xLabel"
-                 Text="xLabel"
+                 Text="{Binding chartInputModelView.xLabel}"
                  Margin="40, 180, 0, 0"
          VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
 
@@ -70,7 +70,7 @@
          VerticalAlignment = "Top" HorizontalAlignment="Left"></TextBlock>
         <TextBox Height = "23"  
          Name = "yLabel"
-                 Text="yLabel"
+                 Text="{Binding chartInputModelView.yLabel}"
                  Margin="40,210,0,0"
          VerticalAlignment = "Top" HorizontalAlignment="Left" Width = "200" />
         

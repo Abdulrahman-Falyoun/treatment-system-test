@@ -68,35 +68,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="mvvm-framework\view\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CustomUserControl.xaml.cs">
+    <Compile Include="mvvm-framework\model\ChartInput.cs" />
+    <Compile Include="mvvm-framework\view-model\ChartInputModelView.cs" />
+    <Compile Include="mvvm-framework\view\CustomUserControl.xaml.cs">
       <DependentUpon>CustomUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Drawer.cs" />
-    <Compile Include="FileReader.cs" />
-    <Compile Include="VisualStudioProvider.cs" />
-    <Compile Include="ZoomBorder.cs" />
-    <Page Include="CustomUserControl.xaml">
+    <Compile Include="mvvm-framework\view-model\Drawer.cs" />
+    <Compile Include="utils\FileReader.cs" />
+    <Compile Include="utils\VisualStudioProvider.cs" />
+    <Compile Include="utils\ZoomBorder.cs" />
+    <Page Include="mvvm-framework\view\CustomUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="mvvm-framework\view\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="mvvm-framework\view\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="mvvm-framework\view\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="mvvm-framework\view-model\DelegateCommand.cs" />
+    <Compile Include="mvvm-framework\view-model\ObservableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -126,5 +130,6 @@
   <ItemGroup>
     <Resource Include="License-LGPL.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

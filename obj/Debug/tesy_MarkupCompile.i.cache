@@ -9,12 +9,12 @@ tesy
 none
 false
 DEBUG;TRACE
-C:\Users\Abdulrahman\source\repos\tesy\tesy\App.xaml
-2-1903679477
+C:\Users\Abdulrahman\source\repos\tesy\tesy\mvvm-framework\view\App.xaml
+2-331870716
 
-11-1557119996
+15-1458663543
 21-224803896
-CustomUserControl.xaml;MainWindow.xaml;
+mvvm-framework\view\CustomUserControl.xaml;mvvm-framework\view\MainWindow.xaml;
 
 True
 

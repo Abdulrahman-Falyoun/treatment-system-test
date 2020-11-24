@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-
+using tesy.mvvm_framework.view_model;
 using LineSeries = OxyPlot.Series.LineSeries;
 
 namespace tesy
@@ -14,17 +14,24 @@ namespace tesy
         private double[,] matrixValues;
         private List<double> xResValues;
         private List<double> yResValues;
-        private int nValue, mValue;
-        private String[] files;
-        double xAxisStep;
-        double yAxisStep;
+
+        private readonly ChartInputModelView chartInputModelView;
+
+
         public CustomUserControl()
         {
             InitializeComponent();
+            chartInputModelView = new ChartInputModelView();
+            
+            // The DataContext serves as the starting point of Binding Paths
+            // DataContext = chartInputModelView;
+
             plotModelUIElement.Model = Drawer.initializePlotModelWithAxes();
         }
 
         private void readContentFromFiles() {
+
+            String[] files = chartInputModelView.filesPaths.Split(';');
 
             FileReader fileReader = new FileReader();
             foreach (String file in files)
@@ -33,8 +40,8 @@ namespace tesy
                 switch (file)
                 {
                     case "values_matrix.txt":
-                        matrixValues = new double[nValue, mValue];
-                        matrixValues = fileReader.readFileAs2D(nValue, mValue);
+                        matrixValues = new double[chartInputModelView.numberOfRows, chartInputModelView.numberOfColumns];
+                        matrixValues = fileReader.readFileAs2D(chartInputModelView.numberOfRows, chartInputModelView.numberOfColumns);
                         break;
 
 
@@ -57,21 +64,6 @@ namespace tesy
             LineSeries series = Drawer.generateLineSeriesBasedOnListOfPoints(points);
             plotModelUIElement.Model.Series.Add(series);
         }
-        private void parseDataFromUI(){
-            try
-            {
-                nValue = int.Parse(n.Text.ToString());
-                mValue = int.Parse(m.Text.ToString());
-                this.files = filesName.Text.ToString().Split(';');
-                xAxisStep = double.Parse(xRes.Text.ToString());
-                yAxisStep = double.Parse(yRes.Text.ToString());
-            } catch(System.Exception e)
-            {
-                throw new Exception("Could not parse data, please make sure your entering correct type: " + e.Message);
-            }
-            
-        }
-
        
         private void onDrawClicked(object sender, RoutedEventArgs e)
         {
@@ -80,27 +72,15 @@ namespace tesy
                 Console.WriteLine("Drawing...");
                 isDrawing = true; // To disable multiple click event
 
-                try
-                {
-                    parseDataFromUI(); // Get data from UI elements names to local data members
 
-                }
-                catch (System.Exception exception)
-                {
-                    Console.WriteLine(exception);
-                    isDrawing = false;
-                    return;
-                }
-
-
-                    readContentFromFiles();
+                readContentFromFiles();
 
 
                 // Map points to one-dimensional list
                 List<double> points = new List<double>();
-                for(int i = 0; i < nValue; i++)
+                for(int i = 0; i < chartInputModelView.numberOfRows; i++)
                 {
-                    for (int j = 0; j < mValue; j++) {
+                    for (int j = 0; j < chartInputModelView.numberOfColumns; j++) {
                         points.Add(matrixValues[i, j]);
                     }
                 }
@@ -150,8 +130,8 @@ namespace tesy
             Console.WriteLine("OnLayoutUpdated");
             if (plotModelUIElement.Model != null)
             {
-                double w = nValue * xAxisStep;
-                double h = mValue * yAxisStep;
+                double w = chartInputModelView.numberOfRows * chartInputModelView.xRes;
+                double h = chartInputModelView.numberOfColumns * chartInputModelView.yRes;
 
                 // double widthAdjustment = Math.Abs(plotModelUIElement.Model.PlotArea.Width - plotModelUIElement.Model.PlotArea.Height);
                 plotModelUIElement.Width = w != 0 ? w : plotModelUIElement.Width;
