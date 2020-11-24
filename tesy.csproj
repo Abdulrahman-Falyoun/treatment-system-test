@@ -77,7 +77,7 @@
     <Compile Include="mvvm-framework\view\CustomUserControl.xaml.cs">
       <DependentUpon>CustomUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="mvvm-framework\view-model\Drawer.cs" />
+    <Compile Include="utils\Drawer.cs" />
     <Compile Include="utils\FileReader.cs" />
     <Compile Include="utils\VisualStudioProvider.cs" />
     <Compile Include="utils\ZoomBorder.cs" />
