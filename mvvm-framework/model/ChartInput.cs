@@ -26,5 +26,9 @@ namespace tesy.mvvm_framework.model
 
         public String yLabel { set; get; }
 
+
+        public double[,] matrixValues { set; get; }
+        public List<double> xResValues { set; get; }
+        public List<double> yResValues { set; get; }
     }
 }

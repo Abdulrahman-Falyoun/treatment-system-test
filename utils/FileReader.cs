@@ -78,8 +78,11 @@ namespace tesy
                 string line;
                 int nRowCounter = 0;
                 int mColumnCounter = 0;
+                int linesCounter = 0;
                 while ((line = reader.ReadLine()) != null)
                 {
+                    if (linesCounter >= n + m) break;
+
                     // if we hit the final row, we have to reset the row to zero and increament the column number by one
                     if (nRowCounter >= n) {
                         // Resetting row
@@ -98,6 +101,7 @@ namespace tesy
                         nRowCounter++;
                     }
 
+                    linesCounter++;
                 }
                 reader.Close();
             }
